@@ -1,6 +1,6 @@
 {
   "name": "headspace",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Headspace - a local desktop workspace for macOS and Windows",
   "main": "main.js",
   "author": "lioneltchami",
