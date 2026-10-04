@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://aka.ms/winget-manifest.installer.1.9.0.schema.json
+PackageIdentifier: Lioneltchami.Headspace
+PackageVersion: 2.0.0
+InstallerLocale: en-US
+InstallerType: nullsoft
+Scope: user
+InstallModes:
+  - interactive
+  - silent
+  - silentWithProgress
+InstallerSwitches:
+  Silent: /S
+  SilentWithProgress: /S
+UpgradeBehavior: install
+ReleaseDate: 2026-10-04
+Installers:
+  - Architecture: x64
+    InstallerUrl: https://github.com/lioneltchami/Headspace/releases/download/v2.0.0/Headspace-2.0.0-windows-x64-setup.exe
+    InstallerSha256: 5b6d6c4b94fc195b4ae968d2b7ef4fb35474386b89059ffd87e19c12b677b22c
+ManifestType: installer
+ManifestVersion: 1.9.0
