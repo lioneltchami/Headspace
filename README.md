@@ -95,7 +95,7 @@ The installer is not commercially code-signed, so SmartScreen may appear. Verify
 
 ## Changelog
 
-Current stable: **v2.0.0**. Unreleased work is tracked under `[Unreleased]` in [CHANGELOG.md](CHANGELOG.md).
+Current stable: **v2.0.1**. Unreleased work is tracked under `[Unreleased]` in [CHANGELOG.md](CHANGELOG.md).
 
 ## Design principles
 
