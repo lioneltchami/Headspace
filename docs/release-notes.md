@@ -2,10 +2,15 @@
 
 | 电脑                                     | 下载文件                                                                                                                                | 安装方式                         |
 | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
-| Mac · Apple Silicon · macOS 13+          | [下载 macOS 安装包（.dmg）](https://github.com/lioneltchami/Headspace/releases/download/v2.0.0/Headspace-2.0.0-arm64.dmg)               | 打开 DMG，将应用拖入「应用程序」 |
-| Windows 10/11 · Intel / AMD 64 位（x64） | [下载 Windows 安装包（.exe）](https://github.com/lioneltchami/Headspace/releases/download/v2.0.0/Headspace-2.0.0-windows-x64-setup.exe) | 双击 EXE，按安装向导完成安装     |
+| Mac · Apple Silicon · macOS 13+          | [下载 macOS 安装包（.dmg）](https://github.com/lioneltchami/Headspace/releases/download/v2.0.1/Headspace-2.0.1-arm64.dmg)               | 打开 DMG，将应用拖入「应用程序」 |
+| Windows 10/11 · Intel / AMD 64 位（x64） | [下载 Windows 安装包（.exe）](https://github.com/lioneltchami/Headspace/releases/download/v2.0.1/Headspace-2.0.1-windows-x64-setup.exe) | 双击 EXE，按安装向导完成安装     |
 
 `.sha256` 是对应文件的完整性校验码，不是安装包。官网提供 macOS 与 Windows 两个下载入口。
+
+## 2.0.1 — 新图标
+
+- 应用图标、菜单栏托盘、官网 favicon 与分享图更换为新的黑色 notch 切割造型标记。
+- 安装包与 Homebrew cask 随本版本重建。
 
 ## 2.0.0 — TO-DO Panel 更名为 Headspace
 
