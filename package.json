@@ -1,0 +1,118 @@
+{
+  "name": "headspace",
+  "version": "2.0.0",
+  "description": "Headspace - a local desktop workspace for macOS and Windows",
+  "main": "main.js",
+  "author": "lioneltchami",
+  "license": "MIT",
+  "scripts": {
+    "test": "node scripts/test-desktop.js",
+    "start": "electron .",
+    "build": "electron-builder --mac dmg --publish never",
+    "build:win": "electron-builder --win nsis --x64 --publish never",
+    "build:zip": "electron-builder --mac zip",
+    "pack": "electron-builder --dir"
+  },
+  "devDependencies": {
+    "electron": "^44.0.0",
+    "electron-builder": "^26.15.7"
+  },
+  "build": {
+    "appId": "com.lioneltchami.headspace",
+    "productName": "Headspace",
+    "artifactName": "Headspace-${version}-${arch}.${ext}",
+    "copyright": "© 2026 lioneltchami",
+    "asar": false,
+    "directories": {
+      "output": "dist.noindex",
+      "buildResources": "build"
+    },
+    "afterPack": "./build/afterPack.js",
+    "files": [
+      "main.js",
+      "main-services.js",
+      "platform.js",
+      "build/headspace-icon.png",
+      "preload.js",
+      "renderer/**/*",
+      "scripts/codex-notify.js",
+      "scripts/claude-notify.js",
+      "package.json",
+      "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+      "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+      "!**/node_modules/.bin",
+      "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes}"
+    ],
+    "mac": {
+      "icon": "build/headspace-icon.icns",
+      "category": "public.app-category.productivity",
+      "minimumSystemVersion": "13.0",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64"
+          ]
+        }
+      ],
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist",
+      "darkModeSupport": true,
+      "extendInfo": {
+        "LSUIElement": true,
+        "NSHighResolutionCapable": true,
+        "CFBundleDisplayName": "Headspace",
+        "NSCameraUsageDescription": "Headspace needs the camera for the Mirror preview.",
+        "NSMicrophoneUsageDescription": "Headspace needs the microphone to record and transcribe audio.",
+        "NSAppleEventsUsageDescription": "Headspace needs System Events to list and focus windows and send Soda Music shortcuts."
+      }
+    },
+    "win": {
+      "icon": "build/headspace-icon.png",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "Headspace-${version}-windows-${arch}-setup.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "runAfterFinish": false,
+      "deleteAppDataOnUninstall": false
+    },
+    "dmg": {
+      "title": "Headspace ${version}",
+      "iconSize": 100,
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ],
+      "window": {
+        "width": 540,
+        "height": 380
+      }
+    }
+  },
+  "dependencies": {
+    "ws": "^8.21.3"
+  }
+}

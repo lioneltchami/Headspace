@@ -1,0 +1,1642 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self' blob:; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Headspace</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app" class="collapsed">
+      <div
+        id="notch"
+        class="notch"
+        role="button"
+        tabindex="0"
+        aria-label="Expand Headspace"
+        aria-expanded="false"
+        aria-controls="panel"
+      >
+        <div class="notch-dot"></div>
+      </div>
+
+      <div id="panel" class="panel" aria-hidden="true" inert>
+        <header class="topbar">
+          <div class="tabs" id="tabs" role="tablist">
+            <button
+              class="tab"
+              id="tab-button-home"
+              type="button"
+              data-tab="home"
+              role="tab"
+              aria-controls="tab-home"
+              aria-selected="false"
+              tabindex="-1"
+            >
+              <svg
+                class="tab-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M4 11.5 12 4l8 7.5" />
+                <path d="M6 10v9h12v-9" />
+              </svg>
+              <span class="tab-label">Home</span>
+            </button>
+            <button
+              class="tab"
+              id="tab-button-todo"
+              type="button"
+              data-tab="todo"
+              role="tab"
+              aria-controls="tab-todo"
+              aria-selected="false"
+              tabindex="-1"
+            >
+              <svg
+                class="tab-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M4 7h10" />
+                <path d="M4 12h10" />
+                <path d="M4 17h7" />
+                <path d="M17.5 7.5 19 9l2.5-3" />
+              </svg>
+              <span class="tab-label">Tasks</span>
+            </button>
+            <button
+              class="tab"
+              id="tab-button-clip"
+              type="button"
+              data-tab="clip"
+              role="tab"
+              aria-controls="tab-clip"
+              aria-selected="false"
+              tabindex="-1"
+              hidden
+              aria-hidden="true"
+            >
+              <svg
+                class="tab-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"
+                />
+                <rect x="9" y="3" width="6" height="4" rx="1" />
+              </svg>
+              <span class="tab-label">Clip</span>
+            </button>
+            <button
+              class="tab"
+              id="tab-button-notes"
+              type="button"
+              data-tab="notes"
+              role="tab"
+              aria-controls="tab-notes"
+              aria-selected="false"
+              tabindex="-1"
+            >
+              <svg
+                class="tab-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 4h14v16H5z" />
+                <path d="M8 8h8M8 12h8M8 16h5" />
+              </svg>
+              <span class="tab-label">Notes</span>
+            </button>
+            <button
+              class="tab"
+              id="tab-button-links"
+              type="button"
+              data-tab="links"
+              role="tab"
+              aria-controls="tab-links"
+              aria-selected="false"
+              tabindex="-1"
+            >
+              <svg
+                class="tab-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M10 13a5 5 0 0 0 7.1.1l2-2a5 5 0 0 0-7.1-7.1l-1.1 1.1"
+                />
+                <path
+                  d="M14 11a5 5 0 0 0-7.1-.1l-2 2A5 5 0 0 0 12 20l1.1-1.1"
+                />
+              </svg>
+              <span class="tab-label">Links</span>
+            </button>
+            <button
+              class="tab"
+              id="tab-button-recordings"
+              type="button"
+              data-tab="recordings"
+              role="tab"
+              aria-controls="tab-recordings"
+              aria-selected="false"
+              tabindex="-1"
+            >
+              <svg
+                class="tab-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="8" y="3" width="8" height="13" rx="4" />
+                <path d="M5 11a7 7 0 0 0 14 0M12 18v3M8.5 21h7" />
+              </svg>
+              <span class="tab-label">Record</span>
+            </button>
+            <button
+              class="tab"
+              id="tab-button-credentials"
+              type="button"
+              data-tab="credentials"
+              role="tab"
+              aria-controls="tab-credentials"
+              aria-selected="false"
+              tabindex="-1"
+            >
+              <svg
+                class="tab-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="8" cy="15" r="4" />
+                <path d="m11 12 7-7 2 2-2 2 1.5 1.5-2.5 2.5-1.5-1.5-2 2" />
+              </svg>
+              <span class="tab-label">Vault</span>
+            </button>
+            <button
+              class="tab"
+              id="tab-button-settings"
+              type="button"
+              data-tab="settings"
+              role="tab"
+              aria-controls="tab-settings"
+              aria-selected="false"
+              tabindex="-1"
+            >
+              <svg
+                class="tab-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="3" />
+                <path
+                  d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21h-4v-.09A1.7 1.7 0 0 0 8.6 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H3v-4h.09A1.7 1.7 0 0 0 4.6 8.6a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V3h4v.09A1.7 1.7 0 0 0 15.4 4.6a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 9c.17.38.48.7.86.88.34.16.7.22 1.06.2H21v4h-.09a1.7 1.7 0 0 0-1.51.92Z"
+                />
+              </svg>
+              <span class="tab-label">Settings</span>
+            </button>
+            <span
+              class="tab-indicator"
+              id="tab-indicator"
+              aria-hidden="true"
+            ></span>
+          </div>
+        </header>
+
+        <div
+          class="shortcut-recorder"
+          id="shortcut-recorder"
+          tabindex="-1"
+          hidden
+        >
+          <span>Press a new summon shortcut</span>
+          <kbd id="shortcut-recorder-value">Waiting for input…</kbd>
+          <small>Space works alone; other keys should use ⌘ / ⌥ / ⌃ / ⇧</small>
+          <button id="shortcut-recorder-cancel" type="button">Cancel</button>
+        </div>
+
+        <div class="panels" id="panels">
+          <section
+            id="tab-home"
+            class="tab-panel"
+            role="tabpanel"
+            aria-labelledby="tab-button-home"
+            aria-hidden="true"
+            inert
+          >
+            <div
+              class="home-bento"
+              id="home-bento"
+              aria-label="Home layout — press and hold to rearrange"
+            >
+              <!-- Local Soda Music controls -->
+              <section
+                class="tile home-music"
+                id="home-music"
+                data-home-module="music"
+                data-widget-size="medium"
+                aria-label="Soda Music player"
+              >
+                <canvas
+                  class="module-effect-canvas"
+                  id="music-color-bends"
+                  aria-hidden="true"
+                ></canvas>
+                <div class="music-copy">
+                  <strong id="music-title">Soda Music</strong>
+                </div>
+                <div
+                  class="music-controls"
+                  role="group"
+                  aria-label="Soda Music controls"
+                >
+                  <button
+                    type="button"
+                    data-music-action="previous"
+                    aria-label="Previous track"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M18 6 9 12l9 6V6Z" />
+                      <path d="M6 6v12" />
+                    </svg>
+                  </button>
+                  <button
+                    class="music-play"
+                    id="music-play-toggle"
+                    type="button"
+                    data-music-action="play"
+                    aria-label="Play"
+                  >
+                    <svg viewBox="0 0 24 24"><path d="m9 7 8 5-8 5z" /></svg>
+                  </button>
+                  <button
+                    type="button"
+                    data-music-action="next"
+                    aria-label="Next track"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="m6 6 9 6-9 6V6Z" />
+                      <path d="M18 6v12" />
+                    </svg>
+                  </button>
+                </div>
+              </section>
+
+              <section
+                class="tile home-pomodoro"
+                id="home-pomodoro"
+                data-home-module="pomodoro"
+                data-widget-size="mini"
+                aria-label="Pomodoro"
+              >
+                <button
+                  class="pomodoro-toggle"
+                  id="pomodoro-toggle"
+                  type="button"
+                  aria-label="Start pomodoro"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m9 7 8 5-8 5z" />
+                  </svg>
+                </button>
+                <div class="pomodoro-readout">
+                  <div class="pomodoro-status" aria-label="Estimated end time">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9ZM9.7 19a2.5 2.5 0 0 0 4.6 0H9.7Z"
+                      />
+                    </svg>
+                    <time id="pomodoro-end-time">--:--</time>
+                  </div>
+                  <div
+                    class="pomodoro-dial"
+                    id="pomodoro-dial"
+                    aria-label="Set pomodoro duration"
+                  >
+                    <input
+                      id="pomodoro-minutes"
+                      value="05"
+                      inputmode="numeric"
+                      maxlength="2"
+                      aria-label="Minutes"
+                    />
+                    <span>:</span>
+                    <input
+                      id="pomodoro-seconds"
+                      value="00"
+                      inputmode="numeric"
+                      maxlength="2"
+                      aria-label="Seconds"
+                    />
+                  </div>
+                  <span class="pomodoro-caption">Timer</span>
+                </div>
+                <button
+                  class="pomodoro-reset"
+                  id="pomodoro-reset"
+                  type="button"
+                  aria-label="Reset pomodoro"
+                  hidden
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.4"
+                    stroke-linecap="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 7l10 10M17 7 7 17" />
+                  </svg>
+                </button>
+              </section>
+
+              <!-- Quick record and live transcript -->
+              <section
+                class="tile home-recorder"
+                id="home-recorder"
+                data-home-module="recorder"
+                data-widget-size="medium"
+              >
+                <div class="recorder-head">
+                  <span
+                    class="recording-state-dot"
+                    id="home-recording-dot"
+                  ></span>
+                  <span class="tile-label" id="home-recording-state"
+                    >Quick record</span
+                  >
+                  <time id="home-recording-time">00:00</time>
+                </div>
+                <p
+                  class="home-transcript"
+                  id="home-live-transcript"
+                  aria-live="polite"
+                  hidden
+                ></p>
+                <div class="recorder-controls">
+                  <button
+                    class="record-control record-start"
+                    id="record-start"
+                    type="button"
+                    aria-label="Start recording"
+                  >
+                    <span></span>
+                  </button>
+                  <button
+                    class="record-control"
+                    id="record-pause"
+                    type="button"
+                    aria-label="Pause recording"
+                    disabled
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      aria-hidden="true"
+                    >
+                      <path d="M9 7v10M15 7v10" />
+                    </svg>
+                  </button>
+                  <button
+                    class="record-control"
+                    id="record-stop"
+                    type="button"
+                    aria-label="Stop recording"
+                    disabled
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <rect x="7" y="7" width="10" height="10" rx="1.5" />
+                    </svg>
+                  </button>
+                </div>
+              </section>
+
+              <!-- Open windows -->
+              <section
+                class="tile home-windows"
+                data-home-module="windows"
+                data-widget-size="large"
+              >
+                <div class="tile-head">
+                  <span class="tile-label">Open windows</span>
+                  <button
+                    class="windows-hidden"
+                    id="windows-hidden"
+                    type="button"
+                    hidden
+                    title="Restore hidden windows"
+                  ></button>
+                  <button
+                    class="squircle windows-refresh"
+                    id="windows-refresh"
+                    type="button"
+                    aria-label="Refresh open windows"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M20 11a8 8 0 1 0-2.35 5.65" />
+                      <path d="M20 5v6h-6" />
+                    </svg>
+                  </button>
+                </div>
+                <div class="window-list" id="window-list">
+                  <div class="window-empty">Windows appear after expand…</div>
+                </div>
+              </section>
+
+              <!-- Mirror: static cover; click for live camera -->
+              <section
+                class="tile home-mirror"
+                data-home-module="mirror"
+                data-widget-size="medium"
+              >
+                <button
+                  class="mirror-stage"
+                  id="mirror-stage"
+                  type="button"
+                  aria-label="Open live mirror"
+                  aria-pressed="false"
+                >
+                  <img
+                    class="mirror-photo"
+                    src="assets/mirror-portrait.jpg"
+                    alt=""
+                    draggable="false"
+                  />
+                  <img
+                    class="mirror-photo mirror-liquid-layer"
+                    src="assets/mirror-portrait.jpg"
+                    alt=""
+                    draggable="false"
+                  />
+                  <video
+                    class="mirror-video"
+                    id="mirror-video"
+                    muted
+                    playsinline
+                    aria-hidden="true"
+                  ></video>
+                  <canvas
+                    class="mirror-water-canvas"
+                    id="mirror-water-canvas"
+                    aria-hidden="true"
+                  ></canvas>
+                  <span
+                    class="mirror-pixel-reveal"
+                    id="mirror-pixel-reveal"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="mirror-ripple" aria-hidden="true"></span>
+                  <svg
+                    class="mirror-filter-defs"
+                    width="0"
+                    height="0"
+                    aria-hidden="true"
+                  >
+                    <filter
+                      id="mirror-liquid-filter"
+                      x="-15%"
+                      y="-15%"
+                      width="130%"
+                      height="130%"
+                    >
+                      <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.012 0.022"
+                        numOctaves="2"
+                        seed="7"
+                        result="noise"
+                      />
+                      <feDisplacementMap
+                        id="mirror-displacement"
+                        in="SourceGraphic"
+                        in2="noise"
+                        scale="0"
+                        xChannelSelector="R"
+                        yChannelSelector="B"
+                      />
+                    </filter>
+                  </svg>
+                </button>
+              </section>
+
+              <!-- Scratch note -->
+              <section
+                class="tile home-note"
+                data-home-module="note"
+                data-widget-size="large"
+              >
+                <div
+                  class="note-toolbar"
+                  role="toolbar"
+                  aria-label="Scratch note actions"
+                >
+                  <span class="tile-label">Scratch note</span>
+                  <div
+                    class="note-persist-actions"
+                    role="group"
+                    aria-label="Scratch note save actions"
+                  >
+                    <button
+                      class="note-mode note-save-btn"
+                      id="note-save-btn"
+                      type="button"
+                      aria-label="Save note"
+                      title="Save note"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M5 4h12l2 2v14H5z" />
+                        <path d="M8 4v6h8V4M8 20v-6h8v6" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="note-body">
+                  <textarea
+                    id="home-note"
+                    class="note-input"
+                    placeholder="Jot something in Markdown…"
+                    aria-label="Markdown scratch note"
+                    spellcheck="false"
+                  ></textarea>
+                </div>
+              </section>
+
+              <!-- Commands -->
+              <section
+                class="tile home-commands"
+                data-home-module="commands"
+                data-widget-size="medium"
+              >
+                <div class="tile-head">
+                  <span class="tile-label">Commands</span>
+                  <button
+                    class="bulk-delete"
+                    id="command-bulk-delete"
+                    type="button"
+                    hidden
+                  >
+                    Delete
+                  </button>
+                </div>
+                <input
+                  class="command-add"
+                  id="command-add"
+                  type="text"
+                  placeholder="Type a command, press Enter to save…"
+                  maxlength="500"
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+                <div class="command-list" id="command-list"></div>
+              </section>
+            </div>
+          </section>
+
+          <section
+            id="tab-todo"
+            class="tab-panel"
+            role="tabpanel"
+            aria-labelledby="tab-button-todo"
+            aria-hidden="true"
+            inert
+          >
+            <div class="sections">
+              <section class="quadrant tile" data-priority="P0">
+                <div class="quadrant-header">
+                  <span class="dot dot-p0"></span>
+                  <input
+                    class="todo-category-name"
+                    data-category="P0"
+                    value="Courses"
+                    maxlength="24"
+                    aria-label="Rename task category"
+                  />
+                  <button
+                    class="bulk-delete todo-bulk-delete"
+                    type="button"
+                    data-bulk-priority="P0"
+                    hidden
+                  >
+                    Delete
+                  </button>
+                  <span class="count" data-priority="P0">0</span>
+                </div>
+                <ul class="todo-list" data-priority="P0"></ul>
+                <div class="add-row">
+                  <input
+                    type="text"
+                    placeholder="Add a task, press Enter to save…"
+                    aria-label="Add Courses task"
+                    data-priority="P0"
+                    maxlength="80"
+                  />
+                  <button
+                    class="todo-deadline-trigger"
+                    type="button"
+                    data-deadline-priority="P0"
+                    aria-label="Pick deadline for Courses task"
+                  >
+                    <span>Date</span>
+                  </button>
+                </div>
+              </section>
+
+              <section class="quadrant tile" data-priority="P1">
+                <div class="quadrant-header">
+                  <span class="dot dot-p1"></span>
+                  <input
+                    class="todo-category-name"
+                    data-category="P1"
+                    value="Media &amp; Writing"
+                    maxlength="24"
+                    aria-label="Rename task category"
+                  />
+                  <button
+                    class="bulk-delete todo-bulk-delete"
+                    type="button"
+                    data-bulk-priority="P1"
+                    hidden
+                  >
+                    Delete
+                  </button>
+                  <span class="count" data-priority="P1">0</span>
+                </div>
+                <ul class="todo-list" data-priority="P1"></ul>
+                <div class="add-row">
+                  <input
+                    type="text"
+                    placeholder="Add a task, press Enter to save…"
+                    aria-label="Add Media & Writing task"
+                    data-priority="P1"
+                    maxlength="80"
+                  />
+                  <button
+                    class="todo-deadline-trigger"
+                    type="button"
+                    data-deadline-priority="P1"
+                    aria-label="Pick deadline for Media & Writing task"
+                  >
+                    <span>Date</span>
+                  </button>
+                </div>
+              </section>
+
+              <section class="quadrant tile" data-priority="P2">
+                <div class="quadrant-header">
+                  <span class="dot dot-p2"></span>
+                  <input
+                    class="todo-category-name"
+                    data-category="P2"
+                    value="Vibe coding"
+                    maxlength="24"
+                    aria-label="Rename task category"
+                  />
+                  <button
+                    class="bulk-delete todo-bulk-delete"
+                    type="button"
+                    data-bulk-priority="P2"
+                    hidden
+                  >
+                    Delete
+                  </button>
+                  <span class="count" data-priority="P2">0</span>
+                </div>
+                <ul class="todo-list" data-priority="P2"></ul>
+                <div class="add-row">
+                  <input
+                    type="text"
+                    placeholder="Add a task, press Enter to save…"
+                    aria-label="Add Vibe coding task"
+                    data-priority="P2"
+                    maxlength="80"
+                  />
+                  <button
+                    class="todo-deadline-trigger"
+                    type="button"
+                    data-deadline-priority="P2"
+                    aria-label="Pick deadline for Vibe coding task"
+                  >
+                    <span>Date</span>
+                  </button>
+                </div>
+              </section>
+
+              <section class="quadrant tile" data-priority="P3">
+                <div class="quadrant-header">
+                  <span class="dot dot-p3"></span>
+                  <input
+                    class="todo-category-name"
+                    data-category="P3"
+                    value="Daily"
+                    maxlength="24"
+                    aria-label="Rename task category"
+                  />
+                  <button
+                    class="bulk-delete todo-bulk-delete"
+                    type="button"
+                    data-bulk-priority="P3"
+                    hidden
+                  >
+                    Delete
+                  </button>
+                  <span class="count" data-priority="P3">0</span>
+                </div>
+                <ul class="todo-list" data-priority="P3"></ul>
+                <div class="add-row">
+                  <input
+                    type="text"
+                    placeholder="Add a task, press Enter to save…"
+                    aria-label="Add Daily task"
+                    data-priority="P3"
+                    maxlength="80"
+                  />
+                  <button
+                    class="todo-deadline-trigger"
+                    type="button"
+                    data-deadline-priority="P3"
+                    aria-label="Pick deadline for Daily task"
+                  >
+                    <span>Date</span>
+                  </button>
+                </div>
+              </section>
+            </div>
+          </section>
+
+          <section
+            id="tab-notes"
+            class="tab-panel"
+            role="tabpanel"
+            aria-labelledby="tab-button-notes"
+            aria-hidden="true"
+            inert
+          >
+            <div class="notes-page">
+              <aside class="notes-library tile">
+                <div class="notes-library-head">
+                  <div>
+                    <span class="tile-label">Note library</span>
+                    <strong id="notes-count">0 notes</strong>
+                  </div>
+                  <label class="notes-search-wrap">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      stroke-linecap="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="11" cy="11" r="6" />
+                      <path d="m16 16 4 4" />
+                    </svg>
+                    <input
+                      id="notes-search"
+                      type="search"
+                      placeholder="Search notes"
+                      aria-label="Search notes"
+                      autocomplete="off"
+                    />
+                  </label>
+                </div>
+                <div class="notes-list" id="notes-list"></div>
+              </aside>
+              <section class="notes-detail tile" id="notes-detail">
+                <div class="notes-detail-empty">
+                  <span class="notes-empty-mark" aria-hidden="true">✎</span>
+                  <strong>No saved notes yet</strong>
+                  <p>
+                    Write in Scratch note on Home, then save — notes show up
+                    here.
+                  </p>
+                </div>
+              </section>
+            </div>
+          </section>
+
+          <section
+            id="tab-links"
+            class="tab-panel"
+            role="tabpanel"
+            aria-labelledby="tab-button-links"
+            aria-hidden="true"
+            inert
+          >
+            <div class="links-page">
+              <div class="links-toolbar">
+                <div class="link-add-wrap">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <circle cx="12" cy="12" r="8" />
+                    <path d="M9 12h6M12 9v6" />
+                  </svg>
+                  <input
+                    id="link-add"
+                    type="text"
+                    placeholder="Paste a URL and press Enter — title and category fill in…"
+                    autocomplete="off"
+                    spellcheck="false"
+                  />
+                </div>
+                <button
+                  class="bulk-delete"
+                  id="link-bulk-delete"
+                  type="button"
+                  hidden
+                >
+                  Delete
+                </button>
+              </div>
+              <div class="link-groups" id="link-groups"></div>
+            </div>
+          </section>
+
+          <section
+            id="tab-recordings"
+            class="tab-panel"
+            role="tabpanel"
+            aria-labelledby="tab-button-recordings"
+            aria-hidden="true"
+            inert
+          >
+            <div class="recordings-page">
+              <aside class="recording-library">
+                <div class="recording-library-head">
+                  <div>
+                    <span class="tile-label">Recording library</span
+                    ><strong id="recording-count">0 items</strong>
+                  </div>
+                  <div class="recording-library-actions">
+                    <button
+                      class="workspace-button compact"
+                      id="recording-configure"
+                      type="button"
+                    >
+                      API settings
+                    </button>
+                    <button
+                      class="workspace-button compact primary"
+                      id="recording-new"
+                      type="button"
+                    >
+                      Record
+                    </button>
+                  </div>
+                  <button
+                    class="bulk-delete"
+                    id="recording-bulk-delete"
+                    type="button"
+                    hidden
+                  >
+                    Delete
+                  </button>
+                </div>
+                <div class="recording-list" id="recording-list"></div>
+              </aside>
+              <section class="recording-detail" id="recording-detail">
+                <div class="recording-detail-empty">
+                  After you record, audio and transcript appear here.
+                </div>
+              </section>
+            </div>
+          </section>
+
+          <section
+            id="tab-clip"
+            class="tab-panel"
+            role="tabpanel"
+            aria-labelledby="tab-button-clip"
+            aria-hidden="true"
+            inert
+          >
+            <div class="clip-panel">
+              <div class="clip-toolbar" id="clip-toolbar">
+                <button
+                  class="clip-filter active"
+                  data-filter="all"
+                  type="button"
+                >
+                  All
+                </button>
+                <button class="clip-filter" data-filter="text" type="button">
+                  Text
+                </button>
+                <button class="clip-filter" data-filter="image" type="button">
+                  Image
+                </button>
+                <button class="clip-filter" data-filter="faved" type="button">
+                  Favorites
+                </button>
+                <button
+                  class="clip-clear-btn squircle"
+                  id="clip-clear-btn"
+                  type="button"
+                  aria-label="Clear history"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 7h16" />
+                    <path d="M9 7V5h6v2" />
+                    <path d="M6 7l1 12h10l1-12" />
+                  </svg>
+                </button>
+              </div>
+              <div class="clip-list" id="clip-list">
+                <div class="clip-empty" id="clip-empty">
+                  Copy something — history shows up here
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section
+            id="tab-credentials"
+            class="tab-panel"
+            role="tabpanel"
+            aria-labelledby="tab-button-credentials"
+            aria-hidden="true"
+            inert
+          >
+            <div class="credentials-page">
+              <section class="tile credentials-form-card">
+                <div class="credentials-heading">
+                  <div>
+                    <span class="tile-label">Add credential</span
+                    ><strong>Stored on this device only</strong>
+                  </div>
+                  <span class="secure-chip">Secure storage</span>
+                </div>
+                <label
+                  ><span>App / service</span
+                  ><input
+                    id="credential-service"
+                    maxlength="80"
+                    placeholder="e.g. GitHub"
+                    autocomplete="off"
+                /></label>
+                <label
+                  ><span>Account</span
+                  ><input
+                    id="credential-account"
+                    maxlength="320"
+                    placeholder="Email, username, or phone"
+                    autocomplete="off"
+                /></label>
+                <label
+                  ><span>Password / token</span
+                  ><input
+                    id="credential-password"
+                    type="text"
+                    maxlength="4096"
+                    placeholder="Encrypted after you save"
+                    autocomplete="off"
+                    spellcheck="false"
+                /></label>
+                <button
+                  class="workspace-button primary credential-save"
+                  id="credential-save"
+                  type="button"
+                >
+                  Save
+                </button>
+                <p class="credentials-note" id="credentials-note">
+                  Passwords never go into page storage. Clipboard clears 60s
+                  after copy.
+                </p>
+              </section>
+              <section class="tile credentials-library">
+                <div class="credentials-library-head">
+                  <div>
+                    <span class="tile-label">Credentials</span
+                    ><strong id="credential-count">0 items</strong>
+                  </div>
+                  <div class="credentials-library-actions">
+                    <input
+                      id="credential-search"
+                      type="search"
+                      placeholder="Search name or account"
+                      aria-label="Search vault"
+                      autocomplete="off"
+                    /><button
+                      class="bulk-delete"
+                      id="credential-bulk-delete"
+                      type="button"
+                      hidden
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+                <div class="credential-list" id="credential-list"></div>
+              </section>
+            </div>
+          </section>
+
+          <section
+            id="tab-settings"
+            class="tab-panel"
+            role="tabpanel"
+            aria-labelledby="tab-button-settings"
+            aria-hidden="true"
+            inert
+          >
+            <div
+              class="settings-page"
+              id="settings-page"
+              aria-label="Headspace settings"
+            >
+              <div class="settings-column settings-column-primary">
+                <section class="tile settings-card settings-api-card">
+                  <div class="settings-card-heading">
+                    <div>
+                      <span class="tile-label">AI features</span
+                      ><strong>API settings</strong>
+                    </div>
+                    <button
+                      class="workspace-button compact"
+                      id="settings-api-configure"
+                      type="button"
+                    >
+                      Configure or replace
+                    </button>
+                  </div>
+                  <div class="settings-status-list">
+                    <div>
+                      <span>DashScope live transcription</span
+                      ><small
+                        id="settings-transcription-status"
+                        data-state="empty"
+                        >Not configured</small
+                      >
+                    </div>
+                    <div>
+                      <span>DeepSeek smart naming</span
+                      ><small id="settings-llm-status" data-state="empty"
+                        >Not configured</small
+                      >
+                    </div>
+                  </div>
+                  <p>
+                    Keys are encrypted with system secure storage and decrypt
+                    only when you view or copy them.
+                  </p>
+                </section>
+
+                <section class="tile settings-card settings-features-card">
+                  <div class="settings-card-heading">
+                    <div>
+                      <span class="tile-label">Workspace</span
+                      ><strong>Visible features</strong>
+                    </div>
+                    <small>Home and Settings always stay visible</small>
+                  </div>
+                  <div class="settings-feature-grid" id="settings-feature-list">
+                    <label
+                      ><span
+                        ><b>Tasks</b><small>Four-quadrant tasks</small></span
+                      ><input
+                        type="checkbox"
+                        data-settings-feature="todo"
+                        aria-label="Show Tasks" /><i aria-hidden="true"></i
+                    ></label>
+                    <label
+                      ><span
+                        ><b>Notes</b
+                        ><small>Scratch notes and library</small></span
+                      ><input
+                        type="checkbox"
+                        data-settings-feature="notes"
+                        aria-label="Show Notes" /><i aria-hidden="true"></i
+                    ></label>
+                    <label
+                      ><span
+                        ><b>Links</b><small>Bookmarks and groups</small></span
+                      ><input
+                        type="checkbox"
+                        data-settings-feature="links"
+                        aria-label="Show Links" /><i aria-hidden="true"></i
+                    ></label>
+                    <label
+                      ><span
+                        ><b>Record</b
+                        ><small>Recording and transcription</small></span
+                      ><input
+                        type="checkbox"
+                        data-settings-feature="recordings"
+                        aria-label="Show Record" /><i aria-hidden="true"></i
+                    ></label>
+                    <label
+                      ><span
+                        ><b>Vault</b
+                        ><small>On-device secure storage</small></span
+                      ><input
+                        type="checkbox"
+                        data-settings-feature="credentials"
+                        aria-label="Show Vault" /><i aria-hidden="true"></i
+                    ></label>
+                    <label
+                      ><span><b>Clipboard</b><small>Off by default</small></span
+                      ><input
+                        type="checkbox"
+                        data-settings-feature="clip"
+                        aria-label="Show Clipboard" /><i aria-hidden="true"></i
+                    ></label>
+                  </div>
+                </section>
+
+                <section class="tile settings-card settings-home-modules-card">
+                  <div class="settings-card-heading">
+                    <div>
+                      <span class="tile-label">Home</span
+                      ><strong>Home widgets</strong>
+                    </div>
+                    <small id="settings-home-module-status"
+                      >Auto-fill when hidden · keep at least one</small
+                    >
+                  </div>
+                  <div
+                    class="settings-home-module-grid"
+                    id="settings-home-module-list"
+                  >
+                    <label
+                      ><span
+                        ><b>Music</b
+                        ><small>Playback status and controls</small></span
+                      ><input
+                        type="checkbox"
+                        data-settings-home-module="music"
+                        aria-label="Show Music" /><i aria-hidden="true"></i
+                    ></label>
+                    <label
+                      ><span><b>Pomodoro</b><small>Focus timer</small></span
+                      ><input
+                        type="checkbox"
+                        data-settings-home-module="pomodoro"
+                        aria-label="Show Pomodoro" /><i aria-hidden="true"></i
+                    ></label>
+                    <label
+                      ><span
+                        ><b>Quick record</b
+                        ><small data-home-module-setting-note="recorder"
+                          >Recording and transcription</small
+                        ></span
+                      ><input
+                        type="checkbox"
+                        data-settings-home-module="recorder"
+                        aria-label="Show Quick record" /><i
+                        aria-hidden="true"
+                      ></i
+                    ></label>
+                    <label
+                      ><span
+                        ><b>Open windows</b
+                        ><small>Quick window switch</small></span
+                      ><input
+                        type="checkbox"
+                        data-settings-home-module="windows"
+                        aria-label="Show Open windows" /><i
+                        aria-hidden="true"
+                      ></i
+                    ></label>
+                    <label
+                      ><span><b>Mirror</b><small>Camera and cover</small></span
+                      ><input
+                        type="checkbox"
+                        data-settings-home-module="mirror"
+                        aria-label="Show Mirror" /><i aria-hidden="true"></i
+                    ></label>
+                    <label
+                      ><span
+                        ><b>Scratch note</b
+                        ><small>Quick notes on Home</small></span
+                      ><input
+                        type="checkbox"
+                        data-settings-home-module="note"
+                        aria-label="Show Scratch note" /><i
+                        aria-hidden="true"
+                      ></i
+                    ></label>
+                    <label
+                      ><span
+                        ><b>Commands</b><small>Prompt shortcuts</small></span
+                      ><input
+                        type="checkbox"
+                        data-settings-home-module="commands"
+                        aria-label="Show Commands" /><i aria-hidden="true"></i
+                    ></label>
+                  </div>
+                </section>
+              </div>
+
+              <div class="settings-column settings-column-secondary">
+                <section class="tile settings-card settings-mirror-card">
+                  <img
+                    id="settings-mirror-preview"
+                    src="assets/mirror-portrait.jpg"
+                    alt="Current Home mirror image"
+                    draggable="false"
+                  />
+                  <div>
+                    <span class="tile-label">Home mirror</span>
+                    <strong>Cover image</strong>
+                    <p>
+                      PNG, JPG, WebP, and HEIC supported. Home updates right
+                      away.
+                    </p>
+                    <button
+                      class="workspace-button compact"
+                      id="settings-mirror-choose"
+                      type="button"
+                    >
+                      Choose image…
+                    </button>
+                  </div>
+                </section>
+
+                <section class="tile settings-card settings-device-card">
+                  <div class="settings-card-heading">
+                    <div>
+                      <span class="tile-label">This computer</span
+                      ><strong>Device and summon</strong>
+                    </div>
+                  </div>
+                  <div class="settings-device-row">
+                    <div>
+                      <span>Summon shortcut</span
+                      ><strong id="settings-shortcut-value">Space</strong>
+                    </div>
+                    <button id="settings-shortcut-change" type="button">
+                      Change
+                    </button>
+                  </div>
+                  <label class="settings-device-row settings-default-tab-row">
+                    <div>
+                      <span>Default expand tab</span
+                      ><strong>Shown each time you open the panel</strong>
+                    </div>
+                    <select
+                      id="settings-default-tab"
+                      aria-label="Default expand tab"
+                    >
+                      <option value="home">Home</option>
+                      <option value="todo">Tasks</option>
+                      <option value="notes">Notes</option>
+                      <option value="links">Links</option>
+                      <option value="recordings">Record</option>
+                      <option value="credentials">Vault</option>
+                      <option value="clip">Clipboard</option>
+                      <option value="settings">Settings</option>
+                    </select>
+                  </label>
+                  <div class="settings-device-row settings-workspace-row">
+                    <div>
+                      <span
+                        >Data folder ·
+                        <em id="settings-workspace-kind"
+                          >Default folder</em
+                        ></span
+                      ><strong id="settings-workspace-path">Loading…</strong>
+                    </div>
+                    <span class="settings-device-actions">
+                      <button id="settings-workspace-open" type="button">
+                        Open folder
+                      </button>
+                      <button id="settings-workspace-choose" type="button">
+                        Change…
+                      </button>
+                    </span>
+                  </div>
+                  <label class="settings-device-row settings-auto-launch-row">
+                    <div>
+                      <span>Launch at login</span
+                      ><strong>Start Headspace when you log in</strong>
+                    </div>
+                    <input
+                      id="settings-auto-launch"
+                      type="checkbox"
+                      aria-label="Launch at login"
+                    />
+                    <i aria-hidden="true"></i>
+                  </label>
+                  <p
+                    class="settings-inline-note"
+                    id="settings-inline-note"
+                    role="status"
+                    aria-live="polite"
+                  ></p>
+                </section>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="todo-date-popover" id="todo-date-popover" hidden>
+          <section
+            class="todo-editor-card"
+            role="group"
+            aria-label="Deadline date and time"
+          >
+            <header class="todo-calendar-head">
+              <button
+                id="todo-calendar-previous"
+                type="button"
+                aria-label="Previous month"
+              >
+                ‹
+              </button>
+              <span id="todo-editor-month"></span>
+              <button
+                id="todo-calendar-next"
+                type="button"
+                aria-label="Next month"
+              >
+                ›
+              </button>
+            </header>
+            <div class="todo-calendar-week">
+              <span>M</span><span>T</span><span>W</span><span>T</span
+              ><span>F</span><span>S</span><span>S</span>
+            </div>
+            <div class="todo-calendar-grid" id="todo-calendar-grid"></div>
+            <div class="todo-time-row">
+              <span>Due time</span
+              ><select id="todo-editor-hour" aria-label="Hour"></select
+              ><b>:</b
+              ><select id="todo-editor-minute" aria-label="Minutes"></select>
+            </div>
+            <p id="todo-editor-error" role="status"></p>
+          </section>
+        </div>
+
+        <div
+          class="transcription-settings-backdrop"
+          id="transcription-settings-backdrop"
+          hidden
+        >
+          <section
+            class="transcription-settings-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="transcription-settings-title"
+          >
+            <div class="transcription-settings-head">
+              <div>
+                <strong id="transcription-settings-title">API settings</strong>
+                <span
+                  >Live transcription and smart naming · keys encrypted on this
+                  device only</span
+                >
+              </div>
+              <button
+                id="transcription-settings-close"
+                type="button"
+                aria-label="Close transcription settings"
+              >
+                ×
+              </button>
+            </div>
+            <div class="transcription-field api-key-field">
+              <div class="api-field-heading">
+                <label for="transcription-api-key"
+                  >DashScope live transcription API key</label
+                >
+                <small id="transcription-api-status" data-state="empty"
+                  >Not configured</small
+                >
+              </div>
+              <input
+                id="transcription-api-key"
+                type="password"
+                placeholder="sk-… (leave blank if already set)"
+                autocomplete="off"
+                spellcheck="false"
+              />
+              <button
+                class="api-key-help"
+                id="transcription-api-help"
+                type="button"
+              >
+                Create or manage API key in Alibaba Cloud Model Studio
+                <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+            <div class="transcription-fields-row">
+              <label class="transcription-field">
+                <span>Region</span>
+                <select id="transcription-region">
+                  <option value="beijing">China North 2 (Beijing)</option>
+                  <option value="singapore">Singapore</option>
+                </select>
+              </label>
+              <label class="transcription-field">
+                <span>Workspace ID (optional)</span>
+                <input
+                  id="transcription-workspace"
+                  type="text"
+                  placeholder="Workspace ID"
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+              </label>
+            </div>
+            <div class="api-settings-divider">
+              <span>Smart naming and grouping</span
+              ><small>OpenAI-compatible</small>
+            </div>
+            <div class="transcription-field api-key-field">
+              <div class="api-field-heading">
+                <label for="llm-api-key">DeepSeek API Key</label>
+                <small id="llm-api-status" data-state="empty"
+                  >Not configured</small
+                >
+              </div>
+              <input
+                id="llm-api-key"
+                type="password"
+                placeholder="Leave blank if already set"
+                autocomplete="off"
+                spellcheck="false"
+              />
+              <button class="api-key-help" id="llm-api-help" type="button">
+                Create or manage API key at DeepSeek
+                <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+            <div class="transcription-fields-row llm-fields-row">
+              <label class="transcription-field">
+                <span>Base URL</span>
+                <input
+                  id="llm-base-url"
+                  type="url"
+                  placeholder="https://…/v1"
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+              </label>
+              <label class="transcription-field">
+                <span>Model</span>
+                <input
+                  id="llm-model"
+                  type="text"
+                  placeholder="deepseek-v4-flash"
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+              </label>
+            </div>
+            <p
+              class="transcription-settings-note"
+              id="transcription-settings-note"
+            >
+              API keys are encrypted with system secure storage; the page cannot
+              read them.
+            </p>
+            <div class="transcription-settings-actions">
+              <button
+                class="workspace-button compact"
+                id="transcription-settings-cancel"
+                type="button"
+              >
+                Cancel
+              </button>
+              <button
+                class="workspace-button compact primary"
+                id="transcription-settings-save"
+                type="button"
+              >
+                Save
+              </button>
+            </div>
+          </section>
+        </div>
+        <div
+          class="status-toast"
+          id="status-toast"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+          aria-hidden="true"
+          hidden
+        >
+          <span id="status-toast-message"></span>
+          <button id="status-toast-action" type="button" hidden>Undo</button>
+        </div>
+      </div>
+    </div>
+    <script src="../platform.js"></script>
+    <script src="domain.js"></script>
+    <script src="effects.js"></script>
+    <script src="ui-shared.js"></script>
+    <script src="todo-ui.js"></script>
+    <script src="notes-ui.js"></script>
+    <script src="home-ui.js"></script>
+    <script src="clipboard-ui.js"></script>
+    <script src="app.js"></script>
+    <script src="workspace-shared.js"></script>
+    <script src="commands-ui.js"></script>
+    <script src="links-ui.js"></script>
+    <script src="recordings-ui.js"></script>
+    <script src="settings-ui.js"></script>
+    <script src="windows-music-ui.js"></script>
+    <script src="credentials-ui.js"></script>
+    <script src="workspace.js"></script>
+    <script src="icon-motion.js"></script>
+  </body>
+</html>
