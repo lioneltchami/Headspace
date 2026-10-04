@@ -21,7 +21,7 @@
     "appId": "com.lioneltchami.headspace",
     "productName": "Headspace",
     "artifactName": "Headspace-${version}-${arch}.${ext}",
-    "copyright": "© 2026 lioneltchami",
+    "copyright": "\u00a9 2026 lioneltchami",
     "asar": false,
     "directories": {
       "output": "dist.noindex",
@@ -33,6 +33,7 @@
       "main-services.js",
       "platform.js",
       "build/headspace-icon.png",
+      "build/headspace-trayTemplate.png",
       "preload.js",
       "renderer/**/*",
       "scripts/codex-notify.js",

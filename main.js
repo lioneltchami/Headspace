@@ -182,6 +182,13 @@ function createNotchTrayIcon() {
 		return nativeImage
 			.createFromPath(path.join(__dirname, "build", "headspace-icon.png"))
 			.resize({ width: 32, height: 32 });
+	// macOS menu bar: mono template derived from the app mark (cutout silhouette).
+	const templatePath = path.join(__dirname, "build", "headspace-trayTemplate.png");
+	if (fs.existsSync(templatePath)) {
+		const icon = nativeImage.createFromPath(templatePath);
+		icon.setTemplateImage(true);
+		return icon;
+	}
 	const png2x = makeNotchPng(2);
 	const icon = nativeImage.createFromBuffer(png2x, { scaleFactor: 2 });
 	icon.setTemplateImage(true);
