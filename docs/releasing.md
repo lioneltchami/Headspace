@@ -38,3 +38,16 @@ Windows 默认安装路径为 `%LOCALAPPDATA%/Programs/Headspace`（以安装向
 ## 测试边界
 
 Windows runner 属于托管 Windows Server 环境。自动化验证并不等于 Windows 10/11 每种硬件都已实测。物理相机/麦克风、多显示器插拔、DPI 混用、组织策略和 SmartScreen 信誉需要真实用户设备持续反馈。测试截图和日志保存在 Actions 的 windows-test-evidence artifact。
+
+## Package managers
+
+After each tagged Release:
+
+1. Homebrew cask bump runs automatically when `HOMEBREW_TAP_DEPLOY_KEY` is set (see [packaging.md](packaging.md)).
+2. Regenerate winget manifests and open/update a PR to `microsoft/winget-pkgs`:
+
+```bash
+VERSION="${GITHUB_REF_NAME#v}"  # or set manually, e.g. 2.0.0
+WIN_SHA=$(curl -fsSL "https://github.com/lioneltchami/Headspace/releases/download/v${VERSION}/Headspace-${VERSION}-windows-x64-setup.exe.sha256" | awk '{print $1}')
+bash scripts/generate-winget-manifests.sh "$VERSION" "$WIN_SHA"
+```

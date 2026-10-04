@@ -101,3 +101,27 @@ jobs:
           sha256sum --check *.sha256
           cd ..
           gh release create "${GITHUB_REF_NAME}" release-assets/*.dmg release-assets/*.exe release-assets/*.sha256 --title "Headspace ${GITHUB_REF_NAME}" --notes-file docs/release-notes.md
+
+  homebrew:
+    name: Update Homebrew cask
+    needs: [release]
+    if: needs.release.result == 'success' && startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bump headspace cask in lioneltchami/homebrew-tap
+        env:
+          HOMEBREW_TAP_DEPLOY_KEY: ${{ secrets.HOMEBREW_TAP_DEPLOY_KEY }}
+        run: |
+          set -euo pipefail
+          if [ -z "${HOMEBREW_TAP_DEPLOY_KEY:-}" ]; then
+            echo "HOMEBREW_TAP_DEPLOY_KEY missing — skip Homebrew tap update"
+            exit 0
+          fi
+          VERSION="${GITHUB_REF_NAME#v}"
+          TMP="$(mktemp -d)"
+          curl -fsSL -o "$TMP/Headspace-${VERSION}-arm64.dmg" \
+            "https://github.com/${GITHUB_REPOSITORY}/releases/download/${GITHUB_REF_NAME}/Headspace-${VERSION}-arm64.dmg"
+          ARM_SHA="$(sha256sum "$TMP/Headspace-${VERSION}-arm64.dmg" | awk '{print $1}')"
+          echo "arm64=$ARM_SHA"
+          bash scripts/update-homebrew-cask.sh "$VERSION" "$ARM_SHA"

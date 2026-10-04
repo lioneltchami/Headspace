@@ -52,6 +52,23 @@ Clipboard history is off by default; enable it from the menu bar or Settings →
 | Mac      | [Headspace-2.0.0-arm64.dmg](https://github.com/lioneltchami/Headspace/releases/download/v2.0.0/Headspace-2.0.0-arm64.dmg)                         |
 | Windows  | [Headspace-2.0.0-windows-x64-setup.exe](https://github.com/lioneltchami/Headspace/releases/download/v2.0.0/Headspace-2.0.0-windows-x64-setup.exe) |
 
+### Package managers
+
+**macOS (Homebrew, Apple Silicon):**
+
+```bash
+brew tap lioneltchami/tap
+brew install --cask headspace
+```
+
+**Windows (winget)** — after the community PR merges (`Lioneltchami.Headspace`):
+
+```powershell
+winget install Lioneltchami.Headspace
+```
+
+Until then, use the Windows installer from GitHub Releases. See [docs/packaging.md](docs/packaging.md).
+
 ### macOS
 
 1. Download `Headspace-*-arm64.dmg` from [GitHub Releases](https://github.com/lioneltchami/Headspace/releases/latest).
