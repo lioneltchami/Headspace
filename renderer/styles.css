@@ -16,6 +16,12 @@
   --text-4: #4a4a4a;
   --focus-ring: #6ea8ff;
 
+  /* Logo cutout glow (sampled from build/headspace-icon.png) */
+  --notch-glow-cyan: #38b4d9;
+  --notch-glow-magenta: #cc3bbb;
+  --notch-glow-cyan-bright: #7ee8ff;
+  --notch-glow-magenta-bright: #ff7ef0;
+
   --scrollbar-thumb: rgba(255, 255, 255, 0.08);
   --scrollbar-thumb-hover: rgba(255, 255, 255, 0.2);
   --tooltip-bg: rgba(0, 0, 0, 0.92);
@@ -249,9 +255,12 @@ body {
   width: 14px;
   height: 3px;
   border-radius: 999px;
-  background: var(
-    --text-2
-  ); /* 0.55 不透明度：在深色刘海下沿明确可辨（用户曾丢失折叠条，可见性优先） */
+  /* Match logo notch-cutout neon: cyan → magenta */
+  background: linear-gradient(
+    90deg,
+    var(--notch-glow-cyan),
+    var(--notch-glow-magenta)
+  );
   transition:
     opacity 160ms var(--ease),
     width var(--d-base) var(--ease-spring),
@@ -261,7 +270,11 @@ body {
 /* 折叠态 hover：药丸变长 + 进一步提亮，作为"可下拉"的抓握暗示 */
 #app.collapsed .notch:hover .notch-dot {
   width: 28px;
-  background: var(--text-1);
+  background: linear-gradient(
+    90deg,
+    var(--notch-glow-cyan-bright),
+    var(--notch-glow-magenta-bright)
+  );
 }
 
 #app.expanded .notch-dot {
