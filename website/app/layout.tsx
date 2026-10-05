@@ -2,9 +2,9 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { assetPath } from "./assetPath.mjs";
 
-const title = "Headspace — a top-edge workspace for Mac and Windows";
+const title = "Headspace  -  top-edge workspace for Mac and Windows";
 const description =
-	"A local workspace for macOS and Windows: Home, Tasks, Notes, Links, Record, Vault, and optional Clipboard — data stays on your computer.";
+	"Local top-edge workspace for solo makers on macOS and Windows: Tasks, Notes, Links, Record, Vault, and local AI alerts. Free MIT download. Not the meditation app.";
 
 export const metadata: Metadata = {
 	metadataBase: new URL("https://lioneltchami.github.io/Headspace/"),
@@ -12,17 +12,17 @@ export const metadata: Metadata = {
 	description,
 	applicationName: "Headspace",
 	keywords: [
-		"Headspace",
-		"macOS notch",
-		"Mac tasks",
-		"Windows tasks",
-		"Local workspace",
+		"Headspace desktop",
+		"macOS notch workspace",
+		"Windows top bar",
+		"local AI alerts",
 		"Apple Silicon",
+		"Electron",
 	],
 	icons: {
-		icon: [{ url: assetPath("/favicon.png"), type: "image/png" }],
-		shortcut: assetPath("/favicon.png"),
-		apple: assetPath("/favicon.png"),
+		icon: [{ url: assetPath("/brand/favicon.png"), type: "image/png" }],
+		shortcut: assetPath("/brand/favicon.png"),
+		apple: assetPath("/brand/favicon.png"),
 	},
 	openGraph: {
 		type: "website",
@@ -32,10 +32,10 @@ export const metadata: Metadata = {
 		description,
 		images: [
 			{
-				url: assetPath("/og.png"),
+				url: assetPath("/brand/og.png"),
 				width: 1200,
 				height: 630,
-				alt: "Headspace site share image",
+				alt: "Headspace mark",
 			},
 		],
 	},
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		title,
 		description,
-		images: [assetPath("/og.png")],
+		images: [assetPath("/brand/og.png")],
 	},
 };
 
@@ -51,7 +51,24 @@ export const viewport: Viewport = {
 	width: "device-width",
 	initialScale: 1,
 	colorScheme: "dark",
-	themeColor: "#000000",
+	themeColor: "#050505",
+};
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "SoftwareApplication",
+	name: "Headspace",
+	applicationCategory: "ProductivityApplication",
+	operatingSystem: "macOS 13+, Windows 10/11",
+	offers: {
+		"@type": "Offer",
+		price: "0",
+		priceCurrency: "USD",
+	},
+	downloadUrl: "https://github.com/lioneltchami/Headspace/releases/latest",
+	url: "https://lioneltchami.github.io/Headspace/",
+	license: "https://opensource.org/licenses/MIT",
+	description,
 };
 
 export default function RootLayout({
@@ -59,6 +76,12 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
 	return (
 		<html lang="en">
+			<head>
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+				/>
+			</head>
 			<body>{children}</body>
 		</html>
 	);

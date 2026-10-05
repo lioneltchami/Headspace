@@ -1,0 +1,127 @@
+{
+  "assets": [
+    {
+      "file": "brand/mark.png",
+      "public_path": "/brand/mark.png",
+      "subject": "Owned Headspace mark",
+      "pages": [
+        "/"
+      ],
+      "origin": "img/headspace-icon.png"
+    },
+    {
+      "file": "brand/favicon.png",
+      "public_path": "/brand/favicon.png",
+      "subject": "Favicon from mark",
+      "pages": [
+        "/"
+      ],
+      "origin": "img/favicon.png"
+    },
+    {
+      "file": "brand/og.png",
+      "public_path": "/brand/og.png",
+      "subject": "OG image from mark",
+      "pages": [
+        "/"
+      ],
+      "origin": "img/og.png"
+    },
+    {
+      "file": "brand/tray-template.png",
+      "public_path": "/brand/tray-template.png",
+      "subject": "Menu bar tray template",
+      "pages": [
+        "/"
+      ],
+      "origin": "img/headspace-trayTemplate.png"
+    },
+    {
+      "file": "brand/panel-collapsed.png",
+      "public_path": "/brand/panel-collapsed.png",
+      "subject": "Collapsed strip product capture",
+      "pages": [
+        "/"
+      ],
+      "origin": "product/hero/panel-collapsed.png"
+    },
+    {
+      "file": "brand/home.jpg",
+      "public_path": "/brand/home.jpg",
+      "subject": "Home expanded capture",
+      "pages": [
+        "/"
+      ],
+      "origin": "product/product-captures/home.jpg"
+    },
+    {
+      "file": "brand/todo.webp",
+      "public_path": "/brand/todo.webp",
+      "subject": "Tasks capture",
+      "pages": [
+        "/"
+      ],
+      "origin": "product/product-captures/todo.webp"
+    },
+    {
+      "file": "brand/notes.webp",
+      "public_path": "/brand/notes.webp",
+      "subject": "Notes capture",
+      "pages": [
+        "/"
+      ],
+      "origin": "product/product-captures/notes.webp"
+    },
+    {
+      "file": "brand/links.webp",
+      "public_path": "/brand/links.webp",
+      "subject": "Links capture",
+      "pages": [
+        "/"
+      ],
+      "origin": "product/product-captures/links.webp"
+    },
+    {
+      "file": "brand/recordings.webp",
+      "public_path": "/brand/recordings.webp",
+      "subject": "Record capture",
+      "pages": [
+        "/"
+      ],
+      "origin": "product/product-captures/recordings.webp"
+    },
+    {
+      "file": "brand/credentials.webp",
+      "public_path": "/brand/credentials.webp",
+      "subject": "Vault capture",
+      "pages": [
+        "/"
+      ],
+      "origin": "product/product-captures/credentials.webp"
+    },
+    {
+      "file": "brand/clipboard.webp",
+      "public_path": "/brand/clipboard.webp",
+      "subject": "Clipboard capture",
+      "pages": [
+        "/"
+      ],
+      "origin": "product/product-captures/clipboard.webp"
+    }
+  ],
+  "type": {
+    "display_and_ui": "IBM Plex Sans",
+    "mono": "IBM Plex Mono",
+    "reason": "In Signal Strip miniature and finalist sheet, Plex reads as product UI next to localhost chips without donor Kanit, Inter SaaS default, or Syne display reflex. Mono pairs for 127.0.0.1 /notify lines.",
+    "rejected": [
+      "Kanit (donor)",
+      "Inter (SaaS default)",
+      "Syne (display reflex)",
+      "Space Grotesk (heavy grotesque risk)"
+    ],
+    "specimens": [
+      "material/type/specimens.png",
+      "material/type/finalists.png"
+    ]
+  }
+}
