@@ -45,12 +45,12 @@ Clipboard history is off by default; enable it from the menu bar or Settings →
 
 ## Download and install
 
-> Current stable: **2.0.1** · **macOS 13.0+ Apple Silicon** / **Windows 10/11 x64**
+> Current stable: **2.0.2** · **macOS 13.0+ Apple Silicon** / **Windows 10/11 x64**
 
 | Platform | Download from GitHub Releases                                                                                                                     |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Mac      | [Headspace-2.0.1-arm64.dmg](https://github.com/lioneltchami/Headspace/releases/download/v2.0.1/Headspace-2.0.1-arm64.dmg)                         |
-| Windows  | [Headspace-2.0.1-windows-x64-setup.exe](https://github.com/lioneltchami/Headspace/releases/download/v2.0.1/Headspace-2.0.1-windows-x64-setup.exe) |
+| Mac      | [Headspace-2.0.2-arm64.dmg](https://github.com/lioneltchami/Headspace/releases/download/v2.0.2/Headspace-2.0.2-arm64.dmg)                         |
+| Windows  | [Headspace-2.0.2-windows-x64-setup.exe](https://github.com/lioneltchami/Headspace/releases/download/v2.0.2/Headspace-2.0.2-windows-x64-setup.exe) |
 
 ### Package managers
 
@@ -95,7 +95,7 @@ The installer is not commercially code-signed, so SmartScreen may appear. Verify
 
 ## Changelog
 
-Current stable: **v2.0.1**. Unreleased work is tracked under `[Unreleased]` in [CHANGELOG.md](CHANGELOG.md).
+Current stable: **v2.0.2**. Unreleased work is tracked under `[Unreleased]` in [CHANGELOG.md](CHANGELOG.md).
 
 ## Design principles
 

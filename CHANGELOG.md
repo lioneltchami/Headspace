@@ -4,6 +4,12 @@ Notable features, fixes, and releases for Headspace (named TO-DO Panel before 2.
 
 ## [Unreleased]
 
+## [2.0.2] - 2026-10-05
+
+### Changed
+
+- macOS menu-bar tray uses the Headspace mark as a template silhouette (matches the app icon).
+
 ## [2.0.1] - 2026-10-04
 
 ### Changed
@@ -140,7 +146,8 @@ Notable features, fixes, and releases for Headspace (named TO-DO Panel before 2.
 
 - First stable release with a fixed-name Apple Silicon DMG pipeline.
 
-[Unreleased]: https://github.com/lioneltchami/Headspace/compare/v2.0.1...HEAD
+[Unreleased]: https://github.com/lioneltchami/Headspace/compare/v2.0.2...HEAD
+[2.0.2]: https://github.com/lioneltchami/Headspace/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/lioneltchami/Headspace/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/lioneltchami/Headspace/compare/v1.2.0...v2.0.0
 [1.2.0]: https://github.com/xiaopu-ai/TO-DO-Panel/compare/v1.1.2...v1.2.0
