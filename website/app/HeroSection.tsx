@@ -189,7 +189,6 @@ export default function HeroSection() {
             <div
               className={`hero-panel-toggle is-${panelState}`}
             >
-              {/* Product UI is shown only through real screenshots from the running app. */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img className="hero-panel-image hero-panel-image-expanded" src={assetPath("/product-captures/home.jpg")} alt="Headspace real Home expanded" />
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -212,7 +211,6 @@ export default function HeroSection() {
         style={heroMaskStyle}
         aria-hidden="true"
       >
-        {/* Reuses original photo pixels through a mask; no foreground is generated. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={assetPath("/hero/mac-scene-hq.jpg")} alt="" fetchPriority="high" />
       </div>

@@ -36,14 +36,13 @@ export default function RealProductMedia({
       {deferred ? (
         <div className="real-media-deferred" data-deferred-media aria-hidden="true" />
       ) : media.missing ? (
-        <div className="real-media-missing" role="img" aria-label={`${alt} — real media coming soon`}>
+        <div className="real-media-missing" role="img" aria-label={`${alt}  -  real media coming soon`}>
           <span>REAL PRODUCT CAPTURE</span>
           <small>{missingLabel}</small>
         </div>
       ) : media.kind === "video" ? (
         <video src={media.src} poster={posterSrc || fallbackSrc || undefined} preload="metadata" muted loop playsInline autoPlay aria-label={alt} onError={handleError} />
       ) : (
-        // The product capture is a real file-backed screenshot. It must never be replaced with drawn UI.
         // eslint-disable-next-line @next/next/no-img-element
         <img src={media.src} alt={alt} loading="lazy" decoding="async" onError={handleError} />
       )}

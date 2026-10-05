@@ -25,3 +25,4 @@ website/public/product-captures/raw/
 .env
 .env.*
 !.env.example
+.bunshin/

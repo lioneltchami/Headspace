@@ -37,7 +37,6 @@ export default function EndingSection() {
           className="ending-island"
           style={reducedMotion ? undefined : { y: islandY, scale: islandScale }}
         >
-          {/* This is the real collapsed-state capture from the running product. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={assetPath("/hero/panel-collapsed.png")} alt="Headspace real collapsed state" />
         </motion.div>
@@ -47,7 +46,7 @@ export default function EndingSection() {
           <p>Expand when you need it, collapse when you don’t</p>
         </motion.div>
 
-        <footer><span>macOS 13+ · Windows 10/11 x64 · MIT</span><span>© 2026 Headspace</span></footer>
+        <footer><span>macOS 13+ / Windows 10/11 x64 / MIT</span><span>© 2026 Headspace</span></footer>
       </div>
     </section>
   );

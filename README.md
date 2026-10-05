@@ -27,6 +27,26 @@
 
 ![Headspace Tasks](docs/screenshots/todo.png)
 
+<p align="center">
+  <img src="docs/screenshots/notes.png" width="49%" alt="Headspace Notes" />
+  <img src="docs/screenshots/links.png" width="49%" alt="Headspace Links" />
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/record.png" width="49%" alt="Headspace Record" />
+  <img src="docs/screenshots/vault.png" width="49%" alt="Headspace Vault" />
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/settings.png" width="72%" alt="Headspace Settings" />
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/collapsed-reference.png" width="200" alt="Headspace collapsed notch strip" />
+  <br />
+  <sub>Collapsed notch strip (life-size width)</sub>
+</p>
+
 ## What it is
 
 Headspace is a local workspace that stays at the top of your macOS / Windows screen. On Mac it collapses to the physical notch size; on Windows it shows as a 200 × 38 DIP top bar that avoids the taskbar. Click to expand from the top.
